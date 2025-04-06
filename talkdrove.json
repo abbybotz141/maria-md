@@ -3,8 +3,8 @@
   "description": "Whatsapp bot by abby",
   "logo": "https://raw.githubusercontent.com/abbybotz141/url/main/url/1264.jpg",
   "keywords": ["bot"],
-  "documentation-link": "https://maria-session.onrender.com",
-  "owner-verification": "fareedjimoh06@gmail.com",
+  "documentation-link": "https://maria-session-bhmh.onrender.com",
+  "owner-verification": "abbyteam21@gmail.com",
   
   "env": {
     "SESSION_ID": {
