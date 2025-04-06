@@ -12,6 +12,11 @@
       "value": "",
       "required": true
     },
+      "OWNER_NUMBER": {
+        "description": "OWNER_NUMBER with country code (e.g, 23470324xxxxx)",
+        "value":"234703241xxxx",
+        "required": true
+   },
     "PREFIX": {
       "description": "Bot command prefix, (e.g, . , ! @ etc)",
       "value": ".",
