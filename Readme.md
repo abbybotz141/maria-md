@@ -69,16 +69,50 @@
 
 ---
 
+## 📱 Connect With Us
+
+### Follow on Social Media
+<a href="https://youtube.com/abbybots141">
+  <img src="https://img.shields.io/badge/YOUTUBE-%23FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Button"/>
+</a>
+
+<a href="https://whatsapp.com/channel/0029VahOucpCcW4s1Zk3O61A">
+  <img src="https://img.shields.io/badge/WHATSAPP_CHANNEL-%25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp Channel Button"/>
+</a>
+
+### Contact Abby Directly
+<a href="https://wa.me/2347032411938">
+  <img src="https://img.shields.io/badge/CONTACT_ABBY_ON_WHATSAPP-%25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Contact Abby Button"/>
+</a>
+
+---
+
 ## ✨ Features
 - Multi-device support
 - Modern and sleek design
 - Easy to deploy
 - Regular updates
+- 24/7 active support
+- Multiple plugin support
+- Fast and responsive
 
 ## 📌 Requirements
 - Node.js v16 or later
 - Git
 - WhatsApp account
+- 512MB RAM minimum
+- Internet connection
 
-## 📜 License
-This project is licensed under the [MIT License](LICENSE).
+## 🙏 Credits
+- **Abby Tech** - Creator of Maria-Md
+- **mxgamecoder** - Code assistance
+- **God** - The ultimate creator
+- **Therealeleven1** - Technical assistance
+
+---
+
+> ❤️ Thank you for choosing Maria-Md. We hope you have a wonderful experience using our bot! ❤️
+
+<p align="center">
+  <img src="https://img.shields.io/badge/STAR_⭐_THIS_REPO_IF_YOU_❤️_IT-%23FFD700?style=for-the-badge" alt="Star Repo"/>
+</p>
