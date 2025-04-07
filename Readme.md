@@ -49,8 +49,15 @@
   <span style="font-size: 0.8em;">BY ABBY TECH</span>
 </h3>
 
+## ⚠️ IMPORTANT WARNING
+**THIS SCRIPT IS NOT OPENLY ALLOWED TO BE USED IN ANY OF YOUR PROJECTS. BE WARNED!!!**
+
+**NOTE:** MARIA-MD BOT IS NOT CREATED BY WHATSAPP INC. SOMETIMES MISUSING THE BOT MIGHT BAN YOUR ACCOUNT. IN THAT CASE I AM NOT RESPONSIBLE FOR IT. USE THE BOT AT YOUR OWN RISK.
+
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=abbybotz141&label=Profile%20views&color=0e75b6&style=flat" alt="abbybotz141" /> 
+  <img src="https://komarev.com/ghpvc/?username=abbybotz141&label=Profile%20views&color=0e75b6&style=flat" alt="abbybotz141" />
+  <br>
+  <img src="https://profile-counter.glitch.me/abbybotz141/count.svg" alt="ABBY PROFILE VIEWS" />
 </p>
 
 ---
