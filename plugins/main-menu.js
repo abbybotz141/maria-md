@@ -1,106 +1,111 @@
 const config = require('../config');
-const { cmd } = require('../command');
+const { cmd, commands } = require('../command');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const { h, m, s } = require('../lib/functions');
+
+// Path configuration
+const mediaPath = {
+    audio: path.join(__dirname, '../lib/media/menu-audio.mp3')
+};
 
 cmd({
-    pattern: "help",
-    alias: ["menu", "h", "commands"],
-    desc: "Get the command list and info",
-    category: "general",
-    react: "✨",
+    pattern: "menu",
+    desc: "Get command list with media",
+    category: "main",
     filename: __filename
 },
-async (conn, mek, m, { from,sender, args, pushname, reply }) => {
-
+async (conn, mek, m, { from, pushname, reply }) => {
     try {
         const categories = {
-            'MAIN': ['alive', 'ping', 'runtime', 'info'],
-            'DOWNLOADER': ['play', 'video', 'ytmp3', 'ytmp4', 'instagram', 'facebook', 'tiktok', 'spotify', 'gdrive'],
-            'GROUP': ['admins', 'gdesc' , 'ginfo' , 'glink' , 'gname' , 'setsubject' , 'tagall' , 'requests' , 'accept' , 'reject' , 'hidetag' , 'kick', 'unlock' , 'lock' , 'approve' , 'poll' , 'getpic'],
-            'FUN': ['rate', 'ship', 'joke', 'insult', 'character', 'kiss', 'hug', 'poke'],
-            'TOOLS': ['emix', 'owner', 'credits', 'password', 'random', 'fake', 'joke', 'qr', 'shorten', 'define', 'reverse', 'repeat', 'count', 'uuid', 'ascii', 'lorem', 'stats', 'color', 'url', 'emoji'],
-            'SEARCH': ['weather', 'movie', 'news', 'wikipedia', 'fact', 'define'],
-            'AI': ['ai', 'gpt', 'blackbox', 'imagine', 'copilot'],
-            'GENERAL': ['menu', 'help', 'h', 'commands'],
-            'OWNER': ['broadcast' , 'block', 'unblock', 'clearchats', 'jid', 'gjid'],
-            'OTHER': ['weather'],
-            'ANIME': ['akira', 'akiyama', 'anna', 'asuna', 'ayuzawa', 'boruto', 'chitanda', 'chitoge', 
-  'deidara', 'doraemon', 'elaina', 'emilia', 'asuna', 'erza', 'gremory', 'hestia', 
-  'hinata', 'inori', 'itachi', 'isuzu', 'itori', 'kaga', 'kagura', 'kakasih', 'kaori', 
-  'kaneki', 'kosaki', 'kotori', 'kuriyama', 'kuroha', 'kurumi', 'madara', 'mikasa', 
-  'miku', 'minato', 'naruto', 'natsukawa', 'neko2', 'nekohime', 'nezuko', 'nishimiya', 
-  'onepiece', 'pokemon', 'rem', 'rize', 'sagiri', 'sakura', 'sasuke', 'shina', 'shinka', 
-  'shizuka', 'shota', 'tomori', 'toukachan', 'tsunade', 'yatogami', 'yuki']
+            download: '*📥 DOWNLOAD COMMANDS*',
+            main: '𝙼𝙰𝙸𝙽',
+            anime: '𝙰𝙽𝙸𝙼𝙴',
+            group: '𝙶𝚁𝙾𝚄𝙿',
+            admin: '𝙰𝙳𝙼𝙸𝙽',
+            other: '𝙾𝚃𝙷𝙴𝚁',
+            owner: '𝙾𝚆𝙽𝙴𝚁',
+            settings: '𝚂𝙴𝚃𝚃𝙸𝙽𝙶𝚂',
+            general: '𝙶𝙴𝙽𝙴𝚁𝙰𝙻',
+            tools: '𝚃𝙾𝙾𝙻𝚂',
         };
 
-        const totalCommands = Object.values(categories).flat().length;
+        let menu = {};
 
-        let mainMenu = `╔══════ •⊹٭✧ ✦ ✧٭⊹• ══════╗
-   *𝐌𝐀𝐑𝐈𝐀 𝐌𝐃* - ℂ𝕆𝕄𝕄𝔸ℕ𝔻 ℍ𝕌𝔹
-╚══════ •⊹٭✧ ✦ ✧٭⊹• ══════╝
-
-⚡ *USER PROFILE*
-┊➣ Name: ${pushname}
-┊➣ Prefix: ${config.PREFIX}
-┊➣ Mode: Public
-┊➣ Uptime: ${runtime(process.uptime())}
-┊➣ Commands: ${totalCommands}
-╰────────────────❖\n\n`;
-
-        mainMenu += `✨ *COMMAND LIST* ✨\n`;
-
-        for (const [category, commands] of Object.entries(categories)) {
-            mainMenu += `┏━━━ ${category} ━━━┓\n`;
-            for (const cmd of commands) {
-                mainMenu += `┊ ❥ ${config.PREFIX}${cmd}\n`;
-            }
-            mainMenu += `┗━━━━━━━━━━━━━━┛\n\n`;
+        // Initialize categories
+        for (const category in categories) {
+            menu[category] = '';
         }
-        mainMenu += `╭────〘 *MARIA BOT INFO* 〙────⊷
-┊ ⋆˚✿˖°⋆ *VERSION*: 2.0
-┊ ⋆˚✿˖°⋆ *POWERED BY*: Node.js
-┊ ⋆˚✿˖°⋆ *CREATED*: 2025
-╰───────────────────⊷
 
-✧*•¸♡⋆。✧*•¸♡⋆。✧*•¸♡⋆。✧*•¸♡⋆。
+        // Populate commands
+        commands.forEach(command => {
+            if (command.pattern && !command.dontAddCommandList && categories[command.category]) {
+                menu[command.category] += `│ ❉ ${config.PREFIX}${command.pattern}\n`;
+            }
+        });
 
-⚠️ *NOTE:* Please avoid spamming commands.`;
+        // Date and time configuration
+        const dateOptions = {
+            timeZone: 'Africa/Lagos',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
 
-        await conn.sendMessage(
-            from,
-            {
-                text: mainMenu,
-                contextInfo: {
-                        mentionedJid: [sender],
-                        forwardingScore: 9999,
-                        isForwarded: true,
-                        forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363420003990090@newsletter',
-                            newsletterName: '⏤͟͟͞͞ᴍᴀʀɪᴀ-ᴍᴅ ͟͞͞⏤'
-                        },
-                    externalAdReply: {
-                       showAdAttribution: false,
-                        containsAutoReply: true,
-                        title: "✧ Maria MD - Command Center ✧",
-                        body: "Elegance Meets Intelligence",
-                        thumbnailUrl: "https://files.catbox.moe/bt7a3x.jpeg",
-                        sourceUrl: "https://github.com/abbybotz141/maria-md",
-                        mediaType: 1,
-                        renderLargerThumbnail: true
-                    }
-                }
-            },
-            { quoted: mek }
-        );
+        const timeOptions = {
+            timeZone: 'Africa/Lagos',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        };
+        const date = new Date().toLocaleDateString('en-US', dateOptions);
+        const time = new Date().toLocaleTimeString('en-US', timeOptions);
 
-    } catch (error) {
-        console.error("Help command error:", error);
-        reply("*✧ SYSTEM ALERT ✧* Command center temporarily unavailable. Please try again later.");
+        // Uptime calculation
+        const uptime = process.uptime();  // Get uptime in seconds
+        const days = Math.floor(uptime / (3600 * 24));
+        const hours = Math.floor((uptime % (3600 * 24)) / 3600);
+        const minutes = Math.floor((uptime % 3600) / 60);
+        const seconds = Math.floor(uptime % 60);
+
+        // Build menu sections
+        let madeMenu = 
+            `╭───〔 🌸 *𝙼𝙰𝚁𝙸𝙰-𝙼𝙳* 🌸 〕───⬣
+│ 📅 *𝙳𝙰𝚃𝙴:* ${date}
+│ 🕐 *𝚃𝙸𝙼𝙴:* ${time}
+│ ⏱️ *𝚄𝙿𝚃𝙸𝙼𝙴:* ${days}d ${hours}h ${minutes}m ${seconds}s
+│ 👑 *𝙾𝚆𝙽𝙴𝚁:* 𝙻𝙾𝚁𝙳 𝙰𝙱𝙱𝚈 𝚃𝙴𝙲𝙷
+│ 🔧 *𝙿𝚁𝙴𝙵𝙸𝚇:* .\n
+╰──────────────\n`;
+
+        for (const [category, title] of Object.entries(categories)) {
+            if (menu[category]) {
+                madeMenu += `
+┅┅┅✦《 ${title} 》✦┅┅┅
+${menu[category]}╰───────────❍`;
+            }
+        }
+
+        madeMenu += "\n\n> *𝙼𝙰𝚁𝙸𝙰 𝙼𝙳| 𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 *";
+
+        // Send menu with image if available
+        if (config.ALIVE_IMG) {
+            await conn.sendMessage(from, {
+                image: { url: config.ALIVE_IMG },
+                caption: madeMenu
+            }, { quoted: mek });
+        } else {
+            // Fallback to text only
+            await conn.sendMessage(from, { text: madeMenu }, { quoted: mek });
+            await reply('⚠️ Menu image is missing!');
+        }
+    } catch (e) {
+        console.error('Menu Error:', e);
+        await reply(`❌ Error: ${e.message}`);
     }
 });
 
-function runtime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${hours}h ${minutes}m ${secs}s`;
-}
+/* Coded by Techbros*/
