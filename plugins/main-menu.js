@@ -3,7 +3,6 @@ const { cmd, commands } = require('../command');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { h, m, s } = require('../lib/functions');
 
 // Path configuration
 const mediaPath = {
