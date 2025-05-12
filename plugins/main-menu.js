@@ -18,7 +18,7 @@ cmd({
 async (conn, mek, m, { from, pushname, reply }) => {
     try {
         const categories = {
-            download: '*📥 DOWNLOAD COMMANDS*',
+            ai: '𝙰𝙸',
             main: '𝙼𝙰𝙸𝙽',
             anime: '𝙰𝙽𝙸𝙼𝙴',
             group: '𝙶𝚁𝙾𝚄𝙿',
