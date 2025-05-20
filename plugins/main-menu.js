@@ -3,8 +3,6 @@ const { cmd, commands } = require('../command');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const more = String.fromCharCode(8206);
-const readmore = more.repeat(4001);
 
 // Path configuration
 const mediaPath = {
@@ -89,7 +87,6 @@ newsletterJid: '120363292215098632@newsletter',
 │ 👑 *𝙾𝚆𝙽𝙴𝚁:* 𝙻𝙾𝚁𝙳 𝙰𝙱𝙱𝚈 𝚃𝙴𝙲𝙷
 │ 🔧 *𝙿𝚁𝙴𝙵𝙸𝚇:* .\n
 ╰──────────────\n`;
- ${readmore}
 
         for (const [category, title] of Object.entries(categories)) {
             if (menu[category]) {
