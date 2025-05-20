@@ -111,7 +111,7 @@ await conn.sendMessage(
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: '120363420003990090@newsletter',
-                            newsletterName: '⏤͟͟͞͞ᴍᴀʀɪᴀ-ᴍᴅ ͟͞͞⏤'
+                            newsletterName: '⏤͟͟͟͟͞͞͞͞𝙼𝙰𝙴𝙸𝙰-𝙼𝙳⏤'
                         },
                     externalAdReply: {
                        showAdAttribution: false,
