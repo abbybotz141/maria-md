@@ -43,7 +43,15 @@ async (conn, mek, m, { from, pushname, reply }) => {
                 menu[command.category] += `│ ❉ ${config.PREFIX}${command.pattern}\n`;
             }
         });
-
+        
+        
+ //fake status and quoted.       
+const voltage = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: {
+newsletterAdminInviteMessage: {
+newsletterJid: '120363292215098632@newsletter',
+    newsletterName: '⏤͟͟͞͞☆ᴠᴏʟᴛ⃝🜲ᴀɢᴇ☆ ͟͞͞⏤',
+    caption: 'ᴠᴏʟᴛᴀɢᴇ ʟᴏʀᴅ ᴅᴇᴠ\nsᴘᴀʀᴋ ᴍᴅ'}}}
+    
         // Date and time configuration
         const dateOptions = {
             timeZone: 'Africa/Lagos',
@@ -90,17 +98,33 @@ ${menu[category]}╰───────────❍`;
 
         madeMenu += "\n\n> *𝙼𝙰𝚁𝙸𝙰 𝙼𝙳| 𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 *";
 
-        // Send menu with image if available
-        if (config.ALIVE_IMG) {
-            await conn.sendMessage(from, {
-                image: { url: config.ALIVE_IMG },
-                caption: madeMenu
-            }, { quoted: mek });
-        } else {
-            // Fallback to text only
-            await conn.sendMessage(from, { text: madeMenu }, { quoted: mek });
-            await reply('⚠️ Menu image is missing!');
-        }
+await conn.sendMessage(
+            from,
+            {
+                text: mainMenu,
+                contextInfo: {
+                        mentionedJid: [sender],
+                        forwardingScore: 9999,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                            newsletterJid: '120363420003990090@newsletter',
+                            newsletterName: '⏤͟͟͞͞ᴍᴀʀɪᴀ-ᴍᴅ ͟͞͞⏤'
+                        },
+                    externalAdReply: {
+                       showAdAttribution: false,
+                        containsAutoReply: true,
+                        title: "✧ 𝙼𝙰𝚁𝙸𝙰 𝙼𝙳 - 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙿𝙰𝙽𝙴𝙻 ✧",
+                        body: "𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 𝙰𝙱𝙱𝚈",
+                        thumbnailUrl: "https://files.catbox.moe/bt7a3x.jpeg",
+                        sourceUrl: "https://abby.com/abbybotz141/maria-md",
+                        mediaType: 1,
+                        renderLargerThumbnail: true
+                    }
+                }
+            },
+            { quoted: voltage }
+        );
+
     } catch (e) {
         console.error('Menu Error:', e);
         await reply(`❌ Error: ${e.message}`);
