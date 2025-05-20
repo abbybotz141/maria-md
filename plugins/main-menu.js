@@ -15,7 +15,7 @@ cmd({
     category: "main",
     filename: __filename
 },
-async (conn, mek, m, { from, pushname, reply }) => {
+async (conn, mek, m, { from, sender, pushname, reply }) => {
     try {
         const categories = {
             ai: '𝙰𝙸',
