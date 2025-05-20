@@ -101,7 +101,7 @@ ${menu[category]}╰───────────❍`;
 await conn.sendMessage(
             from,
             {
-                text: mainMenu,
+                text: madeMenu,
                 contextInfo: {
                         mentionedJid: [sender],
                         forwardingScore: 9999,
