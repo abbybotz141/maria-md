@@ -10,7 +10,7 @@ module.exports = {
     ALIVE_MSG: process.env.ALIVE_MSG || "Hey there, I'm alive",
     OWNER_NUMBER: process.env.OWNER_NUMBER || "2347032411938",
     MODE: process.env.MODE || "private",
-    PREFIX: process.env.PREFIX || ".",
+    PREFIX: process.env.PREFIX || "#",
     BOT_NANE: process.env.BOT_NAME || "Mᴀʀɪᴀ-ᴍᴅ",
     AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "false",
     OWNER_NAME: process.env.OWNER_NAME || "Abby¹",
