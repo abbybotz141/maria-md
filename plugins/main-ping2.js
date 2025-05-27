@@ -4,9 +4,9 @@ const { cmd, commands } = require('../command');
 
 cmd({
 
-    pattern: "ping",
+    pattern: "ping2",
 
-    alias: ["speed" , "p"],
+    alias: ["speed" , "p2"],
 
     desc: "Check bot's response time.",
 
