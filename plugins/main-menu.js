@@ -41,7 +41,7 @@ async (conn, mek, m, { from, sender, pushname, reply }) => {
         // Populate commands
         commands.forEach(command => {
             if (command.pattern && !command.dontAddCommandList && categories[command.category]) {
-                menu[command.category] += `│ ❉ ${config.PREFIX}${command.pattern}\n`;
+                menu[command.category] += `│ ❉ ${command.pattern}\n`;
             }
         });
         
@@ -82,11 +82,11 @@ newsletterJid: '120363292215098632@newsletter',
         // Build menu sections
         let madeMenu = 
             `╭───〔 🌸 *𝙼𝙰𝚁𝙸𝙰-𝙼𝙳* 🌸 〕───⬣
-│ 📅 *𝙳𝙰𝚃𝙴:* ${date}
-│ 🕐 *𝚃𝙸𝙼𝙴:* ${time}
-│ ⏱️ *𝚄𝙿𝚃𝙸𝙼𝙴:* ${days}d ${hours}h ${minutes}m ${seconds}s
-│ 👑 *𝙾𝚆𝙽𝙴𝚁:* 𝙻𝙾𝚁𝙳 𝙰𝙱𝙱𝚈 𝚃𝙴𝙲𝙷
-│ 🔧 *𝙿𝚁𝙴𝙵𝙸𝚇:* .\n
+│ 📅 *Dᴀᴛᴇ:* ${date}
+│ 🕐 *Tɪᴍᴇ:* ${time}
+│ ⏱️ *Uᴘᴛɪᴍᴇ:* ${days}d ${hours}h ${minutes}m ${seconds}s
+│ 👑 *Oᴡɴᴇʀ:* Iᴛs Hɪᴍ Aʙʙʏ
+│ 🔧 *Pʀᴇғɪx:* .\n
 ╰──────────────\n`;
 
         for (const [category, title] of Object.entries(categories)) {
