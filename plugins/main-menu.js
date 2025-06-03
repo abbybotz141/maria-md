@@ -3,6 +3,7 @@ const { cmd, commands } = require('../command');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const { tiny } = require("../lib/fancy_font/fancy");
 
 // Path configuration
 const mediaPath = {
@@ -97,11 +98,12 @@ ${menu[category]}╰───────────❍`;
         }
 
         madeMenu += "\n\n> *𝙼𝙰𝚁𝙸𝙰 𝙼𝙳| 𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 *";
-
+        let kenu = tiny(madeMenu);
+        
 await conn.sendMessage(
             from,
             {
-                text: madeMenu,
+                text: kenu,
                 contextInfo: {
                         mentionedJid: [sender],
                         forwardingScore: 9999,
