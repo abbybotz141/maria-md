@@ -24,6 +24,7 @@ async (conn, mek, m, { from, sender, pushname, reply }) => {
             anime: '𝙰𝙽𝙸𝙼𝙴',
             group: '𝙶𝚁𝙾𝚄𝙿',
             admin: '𝙰𝙳𝙼𝙸𝙽',
+            fun: '𝙵𝚄𝙽', 
             other: '𝙾𝚃𝙷𝙴𝚁',
             owner: '𝙾𝚆𝙽𝙴𝚁',
             settings: '𝚂𝙴𝚃𝚃𝙸𝙽𝙶𝚂',
