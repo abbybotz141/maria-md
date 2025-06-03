@@ -1,4 +1,4 @@
-// Credits Sir Jawad
+// Credits Mr Frank
 
 const config = require('../config');
 const { cmd } = require('../command');
