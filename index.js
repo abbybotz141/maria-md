@@ -141,19 +141,25 @@ async function connectToWA() {
       conn.sendMessage(from, { text }, { quoted: mek });
     };
 
-    // Private mode block
-    if (isCmd && dynamicMode === 'private' && !isOwner) {
-      return conn.sendMessage(from, { text: 'Sorry, this bot is in private mode.' }, { quoted: mek });
+        // If it's a command, enforce private mode restrictions.
+    if (isCmd && dynamicMode === 'private' && ![botNumber, ...ownerNumber].includes(senderNumber)) {
+      return conn.sendMessage(from, { text: 'Sorry, this bot is running in private mode and you are not authorized to use commands.' }, { quoted: mek })
     }
 
-    // Change mode command
+    // Dynamic mode change command; only available to bot or owner.
     if (isCmd && command === 'mode') {
-      if (!isOwner) return reply('Only the owner can change the mode.');
-      if (!args[0]) return reply(`Current mode: ${dynamicMode}\nUse: .mode public | private`);
-      const newMode = args[0].toLowerCase();
-      if (!['public', 'private'].includes(newMode)) return reply('Invalid mode.');
-      dynamicMode = newMode;
-      return reply(`Mode changed to: ${dynamicMode}`);
+      if (![botNumber, ...ownerNumber].includes(senderNumber)) {
+        return reply('Sorry, only the owner can change the mode.')
+      }
+      if (args.length === 0) {
+        return reply(`Current mode is: ${dynamicMode}\nUsage: ${prefix}mode <public|private>`)
+      }
+      let newMode = args[0].toLowerCase()
+      if (newMode !== 'public' && newMode !== 'private') {
+        return reply('Invalid mode. Please use "public" or "private".')
+      }
+      dynamicMode = newMode
+      return reply(`Bot mode updated to: ${dynamicMode}`)
     }
 
     // Handle plugins
