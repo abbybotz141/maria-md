@@ -13,11 +13,11 @@ const stylizedChars = {
 };
 
 cmd({
-    pattern: "chr",
+    pattern: "channelreact",
     alias: ["creact"],
     react: "🔤",
     desc: "React to channel messages with stylized text",
-    category: "whatsapp",
+    category: "channel",
     use: '.chr <channel-link> <text>',
     filename: __filename
 },
@@ -52,7 +52,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┃▸ *Cʜᴀɴɴᴇʟ:* ${channelMeta.name}
 ┃▸ *Rᴇᴀᴄᴛɪᴏɴ:* ${emoji}
 ╰────────────────┈⊷
-> *© Pᴏᴡᴇʀᴇᴅ Bʏ Mᴀʀɪᴀ-MD*`);
+> *© Pᴏᴡᴇʀᴇᴅ Bʏ Mᴀʀɪᴀ-MD`);
     } catch (e) {
         console.error(e);
         reply(`❎ Error: ${e.message || "Failed to send reaction"}`);
