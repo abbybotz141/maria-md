@@ -22,6 +22,7 @@ async (conn, mek, m, { from, sender, pushname, reply }) => {
             ai: '𝙰𝙸',
             main: '𝙼𝙰𝙸𝙽',
             anime: '𝙰𝙽𝙸𝙼𝙴',
+            whatsapp: '𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿', 
             group: '𝙶𝚁𝙾𝚄𝙿',
             admin: '𝙰𝙳𝙼𝙸𝙽',
             fun: '𝙵𝚄𝙽', 
