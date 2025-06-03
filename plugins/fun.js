@@ -1,4 +1,4 @@
-const { cmd } = require("../lib");
+const { cmd } = require("../command");
 const axios = require("axios");
 
 // 1. Joke
