@@ -21,9 +21,9 @@ cmd({
     use: '.chr <channel-link> <text>',
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isCreator, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!isCreator) return reply("❌ Owner only command");
+        if (!isOwner) return reply("❌ Owner only command");
         if (!q) return reply(`Usage:\n${command} https://whatsapp.com/channel/1234567890 hello`);
 
         const [link, ...textParts] = q.split(' ');
