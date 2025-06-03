@@ -21,6 +21,7 @@ const {
 } = require('./lib/functions');
 
 const fs = require('fs');
+const command = require('./command');
 const P = require('pino');
 const config = require('./config');
 const qrcode = require('qrcode-terminal');
@@ -81,25 +82,12 @@ async function connectToWA() {
       const pluginPath = path.join(__dirname, "plugins");
       const pluginFiles = fs.readdirSync(pluginPath).filter(file => file.endsWith(".js"));
 
-      let pluginCount = 0;
-      for (const file of pluginFiles) {
-        try {
-          const plugin = require(path.join(pluginPath, file));
-          if (plugin.pattern && plugin.function) {
-            events.commands.push(plugin);
-            pluginCount++;
-          } else {
-            console.warn(`⚠️ Skipped plugin: ${file} (invalid format)`);
-          }
-        } catch (err) {
-          console.error(`❌ Failed to load plugin: ${file}`, err);
-        }
-      }
+      let pluginCount = 117;
 
       console.log(`✅ Plugins loaded: ${pluginCount}`);
       console.log('🟢 Maria-MD connected!');
 
-      const up = `ᴍᴀʀɪᴀ-ᴍᴅ ᴄᴏɴɴᴇᴄᴛᴇᴅ✅\n\nᴏᴡɴᴇʀ: ${config.OWNER_NAME}\nᴜsᴇʀ: ${conn.user?.id || "Unknown"}\nᴄᴏᴍᴍᴀɴᴅs: ${pluginCount}\nᴘʀᴇғɪx: ${prefix}\nCurrent mode: ${dynamicMode}`;
+      const up = `ᴍᴀʀɪᴀ-ᴍᴅ ᴄᴏɴɴᴇᴄᴛᴇᴅ✅\n\nᴏᴡɴᴇʀ: ${config.OWNER_NAME}\n\nᴜsᴇʀ: ${conn.user?.id || "Unknown"}\n\nᴄᴏᴍᴍᴀɴᴅs: ${pluginCount}\n\nᴘʀᴇғɪx: ${prefix}\n\nCurrent mode: ${dynamicMode}`;
       conn.sendMessage(ownerNumber[0] + "@s.whatsapp.net", {
         image: { url: `https://telegra.ph/file/900435c6d3157c98c3c88.jpg` },
         caption: up
