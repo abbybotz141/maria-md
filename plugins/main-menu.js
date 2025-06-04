@@ -81,15 +81,22 @@ newsletterJid: '120363292215098632@newsletter',
         const minutes = Math.floor((uptime % 3600) / 60);
         const seconds = Math.floor(uptime % 60);
 
+        // Ram calculation
+        const usedRam =  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB 
+        const fullRam =  ${Math.round(require('os').totalmem / 1024 / 1024)}MB 
+        
         // Build menu sections
         let madeMenu = 
             `╭───〔 🌸 *𝙼𝙰𝚁𝙸𝙰-𝙼𝙳* 🌸 〕───⬣
-│*Dᴀᴛᴇ:* ${date}
-│*Tɪᴍᴇ:* ${time}
-│*Uᴘᴛɪᴍᴇ:* ${days}d ${hours}h ${minutes}m ${seconds}s
-│*Oᴡɴᴇʀ:* Iᴛs Hɪᴍ Aʙʙʏ
-│*Usᴇʀ:* ${pushname}
-│*Pʀᴇғɪx:* ${conflig.PREFIX}
+│ *Dᴀᴛᴇ:* ${date}
+│ *Tɪᴍᴇ:* ${time}
+│ *Uᴘᴛɪᴍᴇ:* ${days}d ${hours}h ${minutes}m ${seconds}s
+│ *Oᴡɴᴇʀ:* Iᴛs Hɪᴍ Aʙʙʏ
+│ *Rᴀᴍ:* ${usedRam} / ${fullRam}
+│ *Pʟᴜɢɪɴs:* ${commands.length}
+│ *Usᴇʀ:* ${pushname}
+│ *Pʀᴇғɪx:* ${conflig.PREFIX}
+│ *Mᴏᴅᴇ:* ${config.MODE}
 ╰──────────────\n`;
 
         for (const [category, title] of Object.entries(categories)) {
