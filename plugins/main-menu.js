@@ -92,7 +92,7 @@ newsletterJid: '120363292215098632@newsletter',
 │ *Rᴀᴍ:* ${(os.totalmem() - os.freemem()) / 1024 / 1024} MB / ${os.totalmem() / 1024 / 1024} MB
 │ *Pʟᴜɢɪɴs:* ${commands.length}
 │ *Usᴇʀ:* ${pushname}
-│ *Pʀᴇғɪx:* ${conflig.PREFIX}
+│ *Pʀᴇғɪx:* ${config.PREFIX}
 │ *Mᴏᴅᴇ:* ${config.MODE}
 ╰──────────────\n`;
 
