@@ -82,8 +82,7 @@ newsletterJid: '120363292215098632@newsletter',
         const seconds = Math.floor(uptime % 60);
 
         // Ram calculation
-        const usedRam =  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB 
-        const fullRam =  ${Math.round(require('os').totalmem / 1024 / 1024)}MB 
+        const usedRam =  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB 
         
         // Build menu sections
         let madeMenu = 
