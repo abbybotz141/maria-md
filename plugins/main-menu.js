@@ -84,11 +84,12 @@ newsletterJid: '120363292215098632@newsletter',
         // Build menu sections
         let madeMenu = 
             `╭───〔 🌸 *𝙼𝙰𝚁𝙸𝙰-𝙼𝙳* 🌸 〕───⬣
-│ 📅 *Dᴀᴛᴇ:* ${date}
-│ 🕐 *Tɪᴍᴇ:* ${time}
-│ ⏱️ *Uᴘᴛɪᴍᴇ:* ${days}d ${hours}h ${minutes}m ${seconds}s
-│ 👑 *Oᴡɴᴇʀ:* Iᴛs Hɪᴍ Aʙʙʏ
-│ 🔧 *Pʀᴇғɪx:* .\n
+│*Dᴀᴛᴇ:* ${date}
+│*Tɪᴍᴇ:* ${time}
+│*Uᴘᴛɪᴍᴇ:* ${days}d ${hours}h ${minutes}m ${seconds}s
+│*Oᴡɴᴇʀ:* Iᴛs Hɪᴍ Aʙʙʏ
+│*Usᴇʀ:* ${pushname}
+│*Pʀᴇғɪx:* ${conflig.PREFIX}
 ╰──────────────\n`;
 
         for (const [category, title] of Object.entries(categories)) {
