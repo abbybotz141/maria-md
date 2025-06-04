@@ -91,7 +91,7 @@ newsletterJid: '120363292215098632@newsletter',
 │ *Tɪᴍᴇ:* ${time}
 │ *Uᴘᴛɪᴍᴇ:* ${days}d ${hours}h ${minutes}m ${seconds}s
 │ *Oᴡɴᴇʀ:* Iᴛs Hɪᴍ Aʙʙʏ
-│ *Rᴀᴍ:* ${usedRam} / ${fullRam}
+│ *Rᴀᴍ:* ${usedRam}
 │ *Pʟᴜɢɪɴs:* ${commands.length}
 │ *Usᴇʀ:* ${pushname}
 │ *Pʀᴇғɪx:* ${conflig.PREFIX}
